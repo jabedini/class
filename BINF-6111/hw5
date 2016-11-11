@@ -1,0 +1,11 @@
+Write a Python program that implements a Variant Call Format (VCF) parser (http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41) [Check this link for details of vcf format]. This program reads from a vcf file (hw5.vcf in this assignment), parse the file content, and print the list of variant IDs, variant coordinates, reference and alternative alleles, and corresponding genotypes in the samples, to a file named as “hs5.vcf.out” (add a header to the output file as shown in the following Sample output).
+
+ 
+
+Sample output:
+
+ID         COORDINATE    REF  ALT            NA00001   NA0002 …
+
+rs6054257 chr 20:14370    G      A                0|0             0|1    …
+
+rs3590783 chr20:1230237   T       C                0|0             0|0    …
