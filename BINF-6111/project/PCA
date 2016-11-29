@@ -1,0 +1,24 @@
+setwd("/Users/jalehabedini/Desktop/progI/RHINO_FINAl")
+RHINO <- read.table("late_rhino.tsv", header=T, row.names=1)
+
+target <- scan("late_rhino_target.tsv", what = character())
+
+
+tmatrix <- t(RHINO)
+tmatrix_pca <- prcomp(tmatrix, scale. = TRUE)
+tmatrix <- tmatrix_pca$x[,1:3]
+dft = as.data.frame(tmatrix)
+pc1 = as.numeric(dft$PC1)
+pc2 = as.numeric(dft$PC2)
+pc3 = as.numeric(dft$PC3)
+
+ida = list(tmatrix[,0])
+abc = data.frame(ida,target)
+
+library(plotly)
+
+plot_ly(dft, x=pc1, y=pc2, z=pc3, split=abc$target, type="scatter3d", mode="dots")%>%
+add_markers()%>%
+layout(scene = list(xaxis = list(title = 'PCA1'),
+                    yaxis = list(title = 'PCA2'),
+                    zaxis = list(title = 'PCA3')))
