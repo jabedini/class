@@ -1,0 +1,1 @@
+SELECT measure, gene_symbol, effect_allele_frequency FROM assocs RIGHT OUTER JOIN snps ON (assocs.snp_id=snps.snp_id) WHERE effect_allele_frequency > 0.7 AND LENGTH(gene_symbol) > 1 ORDER BY measure ASC, effect_allele_frequency DESC LIMIT 25;
